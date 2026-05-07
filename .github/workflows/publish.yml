@@ -1,0 +1,25 @@
+name: Publish Ruby Gem
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - run: gem build *.gemspec
+      - uses: ruby/gem-publish-action@v2
+        with:
+          gem-file: '*.gem'
+          api-key: ${{ secrets.RUBYGEMS_TOKEN }}
