@@ -1,0 +1,1 @@
+../../../equipment/swarm_coordinator/asymmetric_knowledge.rb

@@ -24,5 +24,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir.glob('{lib/**/*,LICENSE.txt,README.md}')
   spec.require_path = 'lib'
 
+  spec.add_development_dependency 'rspec', '~> 3.12'
+
   spec.add_dependency 'concurrent-ruby', '~> 1.2'
 end
